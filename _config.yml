@@ -1,0 +1,32 @@
+# Configuración del Sitio - SUMIX
+title: "SUMIX | Supply & Services"
+description: "Suministro y procura de productos industriales y servicios especializados en Venezuela."
+url: "https://sumix.com.ve"
+baseurl: ""
+
+# Configuración de compilación
+theme: minima # Tema base por defecto para fallbacks
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag # Optimización para buscadores (SEO)
+
+# Datos de contacto (Globales)
+email: sumixca@gmail.com
+rif: "J-501707413"
+address: "Urbanización Los Cocales, Calle Los Robles, casa No. 154, El Tigre, Estado Anzoátegui, Venezuela."
+phone: "0414-8009142"
+
+sucursal:
+  ciudad: "Caracas, Distrito Capital"
+  contacto: "José Rafael Gómez"
+  telefono: "0414-2207068"
+
+# Exclusiones
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
