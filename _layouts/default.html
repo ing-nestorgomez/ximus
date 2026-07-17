@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO óptimo autogenerado por Jekyll -->
+  {% seo %}
+
+  <!-- Tipografía moderna para un diseño tecnológico e industrial -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+  <!-- Iconografía profesional -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Enlace a la hoja de estilos global -->
+  <link rel="stylesheet" href="{{ "/assets/css/styles.css" | relative_url }}">
+</head>
+<body>
+
+  <!-- Navegación Superior -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="{{ "/" | relative_url }}" class="brand">
+        <!-- Logotipo simulado estéticamente con CSS para rapidez extrema -->
+        <span class="brand-badge">SUMIX</span>
+        <span class="brand-sub">SUPPLY & SERVICES</span>
+      </a>
+      
+      <!-- Menú para móviles -->
+      <button class="menu-toggle" aria-label="Abrir menú" onclick="toggleMenu()">
+        <i class="fa-solid fa-bars-staggered"></i>
+      </button>
+
+      <!-- Enlaces del Menú -->
+      <nav class="nav-links" id="navLinks">
+        <a href="#inicio" onclick="closeMenu()">Inicio</a>
+        <a href="#nosotros" onclick="closeMenu()">Nosotros</a>
+        <a href="#productos" onclick="closeMenu()">Productos</a>
+        <a href="#servicios" onclick="closeMenu()">Servicios</a>
+        <a href="#contacto" class="btn-primary" onclick="closeMenu()">Contáctanos</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Contenido Dinámico de las Páginas -->
+  <main class="main-content">
+    {{ content }}
+  </main>
+
+  <!-- Pie de Página (Footer) -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      
+      <div class="footer-col brand-info">
+        <div class="brand footer-logo">
+          <span class="brand-badge">SUMIX</span>
+          <span class="brand-sub">SUPPLY & SERVICES</span>
+        </div>
+        <p class="rif-text">Rif: {{ site.rif }}</p>
+        <p class="company-pitch">Soluciones de procura integral y servicios de alta ingeniería para el desarrollo industrial de Venezuela.</p>
+      </div>
+
+      <div class="footer-col">
+        <h3>Sede Principal</h3>
+        <p><i class="fa-solid fa-location-dot"></i> {{ site.address }}</p>
+        <p><i class="fa-solid fa-phone"></i> <a href="tel:+58{{ site.phone | remove: '-' }}">{{ site.phone }}</a></p>
+        <p><i class="fa-solid fa-envelope"></i> <a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+      </div>
+
+      <div class="footer-col">
+        <h3>Sucursal Caracas</h3>
+        <p><i class="fa-solid fa-location-dot"></i> {{ site.sucursal.ciudad }}, Venezuela.</p>
+        <p><i class="fa-solid fa-user-tie"></i> {{ site.sucursal.contacto }}</p>
+        <p><i class="fa-solid fa-phone"></i> <a href="tel:+58{{ site.sucursal.telefono | remove: '-' }}">{{ site.sucursal.telefono }}</a></p>
+      </div>
+
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; {{ "now" | date: "%Y" }} SUMIX C.A. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Script interactivo mínimo y rápido para móviles -->
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('navLinks');
+      nav.classList.toggle('active');
+    }
+    function closeMenu() {
+      const nav = document.getElementById('navLinks');
+      nav.classList.remove('active');
+    }
+  </script>
+</body>
+</html>
