@@ -1,0 +1,271 @@
+---
+# Front matter vacío obligatorio para que Jekyll procese Sass
+---
+
+// ==========================================
+// VARIABLES DE DISEÑO (Estética SUMIX)
+// ==========================================
+:root {
+  --color-brand: #FFCC00;       // Amarillo Industrial SUMIX
+  --color-brand-dark: #D4AA00;  // Amarillo Oscurecido para transiciones
+  --color-bg-dark: #0A0F18;     // Negro/Azul profundo de alta tecnología
+  --color-bg-card: #131B2E;     // Variación para tarjetas oscuras
+  --color-bg-light: #F8FAFC;    // Gris ultra-claro para secciones contrastantes
+  --color-text-dark: #0F172A;   // Texto para fondos claros
+  --color-text-light: #F1F5F9;  // Texto para fondos oscuros
+  --color-text-muted: #94A3B8;  // Texto secundario suavizado
+  
+  --font-title: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+}
+
+// ==========================================
+// RESET & ESTILOS GLOBALES
+// ==========================================
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-light);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-title);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+// ==========================================
+// COMPONENTES REUTILIZABLES
+// ==========================================
+.btn-primary {
+  background-color: var(--color-brand);
+  color: #000000 !important;
+  font-family: var(--font-title);
+  font-weight: 700;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  display: inline-block;
+  box-shadow: var(--shadow-sm);
+  &:hover {
+    background-color: var(--color-brand-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(255, 204, 0, 0.3);
+  }
+}
+
+.section-title {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+  &::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--color-brand);
+    margin: 0.75rem auto 0;
+    border-radius: 2px;
+  }
+}
+
+// ==========================================
+// CABECERA & NAVEGACIÓN (Glassmorphism)
+// ==========================================
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(10, 15, 24, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+  .nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .brand {
+    display: flex;
+    flex-direction: column;
+    
+    .brand-badge {
+      background-color: var(--color-brand);
+      color: #000000;
+      font-family: var(--font-title);
+      font-weight: 700;
+      font-size: 1.5rem;
+      padding: 0.1rem 0.6rem;
+      letter-spacing: 1px;
+      line-height: 1.1;
+      display: inline-block;
+      width: fit-content;
+    }
+    .brand-sub {
+      font-size: 0.65rem;
+      letter-spacing: 2.5px;
+      color: var(--color-text-light);
+      margin-top: 2px;
+      font-weight: 500;
+    }
+  }
+
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--color-text-light);
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    font-weight: 500;
+    font-size: 0.95rem;
+
+    a:not(.btn-primary):hover {
+      color: var(--color-brand);
+    }
+  }
+}
+
+// ==========================================
+// ESTRUCTURA PRINCIPAL & FOOTER
+// ==========================================
+.main-content {
+  margin-top: 75px; // Evita que el header fijo tape el contenido
+}
+
+.site-footer {
+  background-color: #05080d;
+  padding: 5rem 1.5rem 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 4rem;
+  }
+
+  .footer-col {
+    h3 {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      color: var(--color-brand);
+    }
+    p {
+      color: var(--color-text-muted);
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      i {
+        color: var(--color-brand);
+        margin-top: 4px;
+        width: 16px;
+      }
+    }
+    .company-pitch {
+      margin-top: 1rem;
+      line-height: 1.5;
+    }
+  }
+
+  .rif-text {
+    font-family: var(--font-title);
+    color: var(--color-brand) !important;
+    font-size: 0.85rem !important;
+    margin-top: 0.5rem;
+  }
+
+  .footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: center;
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+  }
+}
+
+// ==========================================
+// RESPONSIVE DESIGN (Media Queries)
+// ==========================================
+@media (max-width: 968px) {
+  .site-footer .footer-container {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .site-header {
+    .menu-toggle {
+      display: block;
+    }
+
+    .nav-links {
+      position: fixed;
+      top: 75px;
+      left: -100%;
+      width: 100%;
+      height: calc(100vh - 75px);
+      background-color: var(--color-bg-dark);
+      flex-direction: column;
+      padding: 3rem 1.5rem;
+      gap: 2.5rem;
+      transition: var(--transition);
+      font-size: 1.2rem;
+
+      &.active {
+        left: 0;
+      }
+
+      .btn-primary {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+}
