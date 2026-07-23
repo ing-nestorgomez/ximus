@@ -1,112 +1,152 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title | default: "SUMIX - Suministros Mixtos y Soluciones Industriales" }}</title>
-  
-  <!-- Tipografía Google Fonts Montserrat -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
-  
-  <!-- FontAwesome para Iconos -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
-  <!-- Estilos Principales -->
-  <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
-</head>
-<body>
+---
+layout: default
+title: SUMIX - Suministros Mixtos y Soluciones Industriales
+---
 
-  <!-- NAVEGACIÓN Y HEADER (AMARILLO CORPORATIVO) -->
-  <header class="site-header">
-    <div class="nav-container">
-      <a href="{{ '/' | relative_url }}" class="brand-logo">
-        <span class="logo-sumix">SUMIX</span>
-      </a>
+<!-- 1. HERO SECTION -->
+<section id="inicio" class="hero-section">
+  <div class="hero-overlay"></div>
+  <div class="hero-container">
+    <div class="hero-badge">FUNDADA EN 2021</div>
+    <h1 class="hero-title">
+      Suministros Mixtos y Soluciones <span class="text-highlight">Industriales</span>
+    </h1>
+    <p class="hero-subtitle">
+      Empresa especializada en suministros y servicios para los sectores Petroleros, Petroquímicos, Gasíferos, Siderúrgicos y Cementeros de Venezuela.
+    </p>
+    <a href="#productos" class="btn-hero">Explorar más</a>
+  </div>
+</section>
 
-      <button class="menu-toggle" id="mobile-menu-btn" aria-label="Abrir menú">
-        <i class="fas fa-bars"></i>
-      </button>
-
-      <nav class="nav-links" id="nav-links">
-        <a href="#inicio">Inicio</a>
-        <a href="#nosotros">Nosotros</a>
-        <a href="#productos">Productos</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#contacto" class="nav-btn-contact">Contáctanos</a>
-      </nav>
+<!-- 2. REASON WHY / NOSOTROS -->
+<section id="nosotros" class="about-section">
+  <div class="container about-container">
+    <div class="about-content">
+      <h2 class="about-heading">REASON WHY?</h2>
+      <p class="about-text">
+        Fundada en el año 2021 con el propósito de posicionarse como una de las principales empresas de Suministro Mixtos de Venezuela y formar parte de los diversos proveedores de soluciones para la Industria Petrolera, Petroquímica, Gasífera, Siderúrgica y Cementera del País.
+      </p>
+      <p class="about-text">
+        Nace SUMIX, C.A. una empresa dirigida por jóvenes profesionales, comprometidos en satisfacer las necesidades de sus clientes en el suministro y procura de productos, tanto esenciales y de uso básicos, como especializados; teniendo que desarrollarse también en actividades de servicios para múltiples sectores, y de esa forma contribuir con el constante crecimiento del Sector Industrial Venezolano.
+      </p>
     </div>
-  </header>
+    <div class="about-image-wrapper">
+      <img src="{{ '/assets/images/about-worker.jpg' | relative_url }}" alt="Trabajador industrial SUMIX">
+    </div>
+  </div>
+</section>
 
-  <!-- CONTENIDO DINÁMICO DE LA PÁGINA -->
-  <main class="main-content">
-    {{ content }}
-  </main>
-
-  <!-- FOOTER FIDELIDAD EXACTA (AMARILLO CORPORATIVO) -->
-  <footer class="site-footer">
-    <div class="footer-container">
-      <!-- Columna Logo e Info -->
-      <div class="footer-col">
-        <div style="background-color: #000; display: inline-block; padding: 0.4rem 1.2rem; margin-bottom: 1rem;">
-          <span style="color: #FFCC00; font-weight: 900; font-size: 1.8rem; letter-spacing: 2px;">SUMIX</span>
+<!-- 3. CATÁLOGO DE PRODUCTOS -->
+<section id="productos" class="products-section">
+  <div class="container">
+    <h2 class="section-title-center">Catálogo de Productos<br>y Suministros</h2>
+    
+    <div class="products-list">
+      <!-- Producto 1 -->
+      <div class="product-row">
+        <img src="{{ '/assets/images/prod-alimentos.jpg' | relative_url }}" alt="Alimentos y Bebidas" class="product-img">
+        <div class="product-info">
+          <h3>SUMINISTRO Y DISTRIBUCIÓN DE ALIMENTOS Y BEBIDAS</h3>
+          <p>Productos de consumo masivo perecederos y no perecederos en todas sus presentaciones nacionales e importados para el abastecimiento de comedores industriales y corporativos.</p>
         </div>
-        <p style="font-weight: 700; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase;">Supply & Services</p>
+        <a href="#contacto" class="btn-readmore">Leer más</a>
       </div>
 
-      <!-- Columna Sede Principal y Sucursales -->
-      <div class="footer-col">
-        <h3>Sede Principal</h3>
-        <p><i class="fas fa-map-marker-alt"></i> Calle Los Robles, No. 154, Los Cocales, El Tigre, Estado Anzoátegui, Venezuela</p>
-        
-        <h3 style="margin-top: 1.5rem;">Sucursal Caracas</h3>
-        <p><i class="fas fa-map-marker-alt"></i> Muy pronto</p>
+      <!-- Producto 2 -->
+      <div class="product-row">
+        <img src="{{ '/assets/images/prod-oficina.jpg' | relative_url }}" alt="Artículos de Oficina" class="product-img">
+        <div class="product-info">
+          <h3>SUMINISTRO DE ARTÍCULOS DE OFICINA</h3>
+          <p>Papelería, mobiliario de oficina, escritorios, sillas, equipos de computación, tecnología, artículos consumibles de impresión, artículos de fijación, corte, accesorios y artículos de limpieza.</p>
+        </div>
+        <a href="#contacto" class="btn-readmore">Leer más</a>
       </div>
 
-      <!-- Columna Contacto -->
-      <div class="footer-col">
-        <h3>Contacto</h3>
-        <p><i class="fas fa-phone-alt"></i> 0414-8009142</p>
-        <p><i class="fas fa-envelope"></i> sumixca@gmail.com</p>
+      <!-- Producto 3 -->
+      <div class="product-row">
+        <img src="{{ '/assets/images/prod-uniformes.jpg' | relative_url }}" alt="Uniformes y Seguridad" class="product-img">
+        <div class="product-info">
+          <h3>SUMINISTRO Y DOTACIÓN DE UNIFORMES</h3>
+          <p>Prendas de vestir y calzados, equipos de seguridad y protección personal, bragas, botas de seguridad, cascos, arnés, detectores de H2S, detectores multigases.</p>
+        </div>
+        <a href="#contacto" class="btn-readmore">Leer más</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. SERVICIOS DE INGENIERÍA Y SOPORTE -->
+<section id="servicios" class="services-section">
+  <div class="container">
+    <h2 class="section-title-center">Servicios de Ingeniería y Soporte</h2>
+    
+    <div class="services-list">
+      <!-- Servicio 1 -->
+      <div class="service-card" style="background-image: url('{{ '/assets/images/serv-redes.jpg' | relative_url }}');">
+        <div class="service-overlay"></div>
+        <div class="service-badge">Instalaciones</div>
+        <div class="service-content">
+          <div class="service-text-group">
+            <h3>Redes Eléctricas e Iluminación</h3>
+            <p>Variadores de frecuencia, cabezales de rotación, motores, válvulas, instrumentación, cabillas de succión y tuberías.</p>
+          </div>
+          <a href="#contacto" class="btn-service">Solicitar servicio</a>
+        </div>
+      </div>
+
+      <!-- Servicio 2 -->
+      <div class="service-card" style="background-image: url('{{ '/assets/images/serv-metalmecanica.jpg' | relative_url }}');">
+        <div class="service-overlay"></div>
+        <div class="service-badge">Ingeniería</div>
+        <div class="service-content">
+          <div class="service-text-group">
+            <h3>Metalmecánica y Obras Civiles</h3>
+            <p>Soldadura certificada, preparación de superficies y reformas estructurales para optimizar la seguridad en sitio.</p>
+          </div>
+          <a href="#contacto" class="btn-service">Solicitar servicio</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. CONTACTO CTA (TARJETA AMARILLA BRILLANTE) -->
+<section id="contacto" class="contact-section">
+  <div class="container">
+    <div class="contact-box">
+      <h2>¿Listo para optimizar tus operaciones?</h2>
+      <p>Establece contacto directo con nuestra gerencia técnica y de procura para cotizaciones o alianzas comerciales de largo plazo</p>
+      <div class="contact-actions">
+        <a href="mailto:sumixca@gmail.com" class="btn-action-black">
+          <i class="fas fa-envelope"></i> Enviar Correo
+        </a>
+        <a href="tel:04148009142" class="btn-action-outline">
+          <i class="fas fa-phone-alt"></i> Llamar Ahora
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. REDES SOCIALES -->
+<section class="social-section">
+  <div class="container">
+    <h2 class="social-title">Explora nuestro contenido en nuestras redes sociales</h2>
+    
+    <div class="social-grid">
+      <div class="social-card">
+        <img src="{{ '/assets/images/social-1.jpg' | relative_url }}" alt="Social Post 1">
+      </div>
+      <div class="social-card">
+        <img src="{{ '/assets/images/social-2.jpg' | relative_url }}" alt="Social Post 2">
+      </div>
+      <div class="social-card">
+        <img src="{{ '/assets/images/social-3.jpg' | relative_url }}" alt="Social Post 3">
       </div>
     </div>
 
-    <div class="footer-bottom">
-      <p>&copy; 2026 SUMIX C.A. Todos los derechos reservados.</p>
-    </div>
-  </footer>
-
-  <!-- Script para el menú responsive -->
-  <script>
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const navLinks = document.getElementById('nav-links');
-
-    if (mobileMenuBtn && navLinks) {
-      mobileMenuBtn.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        const icon = mobileMenuBtn.querySelector('i');
-        if (navLinks.classList.contains('active')) {
-          icon.classList.remove('fa-bars');
-          icon.classList.add('fa-times');
-        } else {
-          icon.classList.remove('fa-times');
-          icon.classList.add('fa-bars');
-        }
-      });
-
-      // Cierra el menú al hacer clic en cualquier enlace
-      document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-          navLinks.classList.remove('active');
-          const icon = mobileMenuBtn.querySelector('i');
-          if (icon) {
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
-          }
-        });
-      });
-    }
-  </script>
-</body>
-</html>
+    <a href="https://instagram.com/sumix.supply" target="_blank" rel="noopener noreferrer" class="social-handle">
+      <i class="fab fa-instagram"></i> @sumix.supply
+    </a>
+  </div>
+</section>
