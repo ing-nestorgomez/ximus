@@ -3,85 +3,109 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  {% seo %}
-
-  <!-- Tipografía -->
+  <title>{{ page.title | default: "SUMIX - Suministros Mixtos y Soluciones Industriales" }}</title>
+  
+  <!-- Tipografía Google Fonts Montserrat -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-  <!-- FontAwesome Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome para Iconos -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <!-- Estilos Globales -->
-  <link rel="stylesheet" href="{{ "/assets/css/styles.css" | relative_url }}">
+  
+  <!-- Estilos Principales -->
+  <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
 </head>
 <body>
 
-  <!-- Navegación Superior -->
+  <!-- NAVEGACIÓN Y HEADER (AMARILLO CORPORATIVO) -->
   <header class="site-header">
     <div class="nav-container">
-      <a href="{{ "/" | relative_url }}" class="brand-logo">
+      <a href="{{ '/' | relative_url }}" class="brand-logo">
         <span class="logo-sumix">SUMIX</span>
       </a>
-      
-      <button class="menu-toggle" aria-label="Abrir menú" onclick="toggleMenu()">
-        <i class="fa-solid fa-bars"></i>
+
+      <button class="menu-toggle" id="mobile-menu-btn" aria-label="Abrir menú">
+        <i class="fas fa-bars"></i>
       </button>
 
-      <nav class="nav-links" id="navLinks">
-        <a href="#inicio" onclick="closeMenu()">Inicio</a>
-        <a href="#nosotros" onclick="closeMenu()">Nosotros</a>
-        <a href="#productos" onclick="closeMenu()">Productos</a>
-        <a href="#servicios" onclick="closeMenu()">Servicios</a>
-        <a href="#contacto" class="nav-btn-contact" onclick="closeMenu()">Contacto</a>
+      <nav class="nav-links" id="nav-links">
+        <a href="#inicio">Inicio</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#productos">Productos</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#contacto" class="nav-btn-contact">Contáctanos</a>
       </nav>
     </div>
   </header>
 
-  <!-- Contenido Principal -->
+  <!-- CONTENIDO DINÁMICO DE LA PÁGINA -->
   <main class="main-content">
     {{ content }}
   </main>
 
-  <!-- Footer -->
+  <!-- FOOTER FIDELIDAD EXACTA (AMARILLO CORPORATIVO) -->
   <footer class="site-footer">
     <div class="footer-container">
-      
-      <div class="footer-col brand-col">
-        <div class="footer-logo">SUMIX</div>
+      <!-- Columna Logo e Info -->
+      <div class="footer-col">
+        <div style="background-color: #000; display: inline-block; padding: 0.4rem 1.2rem; margin-bottom: 1rem;">
+          <span style="color: #FFCC00; font-weight: 900; font-size: 1.8rem; letter-spacing: 2px;">SUMIX</span>
+        </div>
+        <p style="font-weight: 700; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase;">Supply & Services</p>
       </div>
 
+      <!-- Columna Sede Principal y Sucursales -->
       <div class="footer-col">
         <h3>Sede Principal</h3>
-        <p>Calle Los Robles, No. 154, Los Cocoles<br>El Tigre, Estado Anzoátegui<br>Venezuela</p>
+        <p><i class="fas fa-map-marker-alt"></i> Calle Los Robles, No. 154, Los Cocales, El Tigre, Estado Anzoátegui, Venezuela</p>
+        
+        <h3 style="margin-top: 1.5rem;">Sucursal Caracas</h3>
+        <p><i class="fas fa-map-marker-alt"></i> Muy pronto</p>
       </div>
 
-      <div class="footer-col">
-        <h3>Sucursal Caracas</h3>
-        <p>Muy pronto</p>
-      </div>
-
+      <!-- Columna Contacto -->
       <div class="footer-col">
         <h3>Contacto</h3>
-        <p>SUMIX C.A.</p>
-        <p><a href="tel:04148008142">0414-8008142</a></p>
-        <p><a href="mailto:sumixca@gmail.com">sumixca@gmail.com</a></p>
+        <p><i class="fas fa-phone-alt"></i> 0414-8009142</p>
+        <p><i class="fas fa-envelope"></i> sumixca@gmail.com</p>
       </div>
-
     </div>
-    
+
     <div class="footer-bottom">
-      <p>&copy; {{ "now" | date: "%Y" }} SUMIX C.A. Todos los derechos reservados.</p>
+      <p>&copy; 2026 SUMIX C.A. Todos los derechos reservados.</p>
     </div>
   </footer>
 
+  <!-- Script para el menú responsive -->
   <script>
-    function toggleMenu() {
-      document.getElementById('navLinks').classList.toggle('active');
-    }
-    function closeMenu() {
-      document.getElementById('navLinks').classList.remove('active');
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const navLinks = document.getElementById('nav-links');
+
+    if (mobileMenuBtn && navLinks) {
+      mobileMenuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        const icon = mobileMenuBtn.querySelector('i');
+        if (navLinks.classList.contains('active')) {
+          icon.classList.remove('fa-bars');
+          icon.classList.add('fa-times');
+        } else {
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
+      });
+
+      // Cierra el menú al hacer clic en cualquier enlace
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('active');
+          const icon = mobileMenuBtn.querySelector('i');
+          if (icon) {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+          }
+        });
+      });
     }
   </script>
 </body>
