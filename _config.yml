@@ -4,34 +4,19 @@ description: "Suministro y procura de productos industriales y servicios especia
 url: "https://sumix.com.ve"
 baseurl: ""
 
-# Configuración de compilación (Tema base desactivado para usar nuestro CSS personalizado)
-# theme: minima
-
-sass:
-  sass_dir: _sass
-  style: compressed
-
+# Plugins
 plugins:
   - jekyll-feed
-  - jekyll-seo-tag # Optimización para buscadores (SEO)
+  - jekyll-seo-tag
 
-# Datos de contacto (Globales)
+# Datos de contacto
 email: sumixca@gmail.com
 rif: "J-501707413"
 address: "Urbanización Los Cocales, Calle Los Robles, casa No. 154, El Tigre, Estado Anzoátegui, Venezuela."
 phone: "0414-8009142"
 
-sucursal:
-  ciudad: "Caracas, Distrito Capital"
-  contacto: "José Rafael Gómez"
-  telefono: "0414-2207068"
-
-# Exclusiones
 exclude:
   - Gemfile
   - Gemfile.lock
   - node_modules
-  - vendor/bundle/
-  - vendor/cache/
-  - vendor/gems/
-  - vendor/ruby/
+  - vendor/
