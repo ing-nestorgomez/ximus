@@ -4,8 +4,13 @@ description: "Suministro y procura de productos industriales y servicios especia
 url: "https://sumix.com.ve"
 baseurl: ""
 
-# Configuración de compilación
-theme: minima # Tema base por defecto para fallbacks
+# Configuración de compilación (Tema base desactivado para usar nuestro CSS personalizado)
+# theme: minima
+
+sass:
+  sass_dir: _sass
+  style: compressed
+
 plugins:
   - jekyll-feed
   - jekyll-seo-tag # Optimización para buscadores (SEO)
