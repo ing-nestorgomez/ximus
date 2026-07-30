@@ -1,6 +1,6 @@
 ---
 ---
-/* Estilos Principales SUMIX - Diseño Final */
+/* Estilos Principales SUMIX - Final Consolidado */
 
 :root {
   --color-primary: #FFCC00;         /* Amarillo SUMIX */
@@ -13,7 +13,8 @@
   --color-text-light: #FFFFFF;
   --radius-btn: 30px;              /* Botones ovalados/píldora */
   --radius-card: 12px;
-  --font-main: 'Montserrat', sans-serif;
+  --font-main: 'Plus Jakarta Sans', sans-serif;
+  --font-heading: 'Plus Jakarta Sans', sans-serif;
   --transition: all 0.3s ease;
 }
 
@@ -34,6 +35,10 @@ body {
   color: var(--color-text-dark);
   line-height: 1.5;
   overflow-x: hidden;
+}
+
+h1, h2, h3, .hero-title, .logo-sumix {
+  font-family: var(--font-heading);
 }
 
 a {
@@ -121,7 +126,7 @@ a {
   margin-top: 65px;
 }
 
-/* HERO SECTION */
+/* HERO SECTION CON OVERLAY AMARILLENTO */
 .hero-section {
   position: relative;
   height: 85vh;
@@ -131,12 +136,13 @@ a {
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: var(--color-text-light);
+  color: #FFFFFF;
 
   .hero-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(198, 165, 67, 0.72);
+    background: rgba(45, 40, 10, 0.72);
+    mix-blend-mode: multiply;
   }
 
   .hero-container {
@@ -148,21 +154,22 @@ a {
 
   .hero-badge {
     display: inline-block;
-    border: 2px solid var(--color-primary);
+    border: 1.5px solid var(--color-primary);
     color: var(--color-primary);
-    padding: 0.4rem 1.5rem;
+    padding: 0.4rem 1.6rem;
     border-radius: var(--radius-btn);
-    font-size: 0.9rem;
-    font-weight: 800;
-    letter-spacing: 2px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
     margin-bottom: 1.5rem;
   }
 
   .hero-title {
     font-size: 3.2rem;
-    font-weight: 900;
-    line-height: 1.2;
-    margin-bottom: 1.5rem;
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 1.2rem;
+    letter-spacing: -0.02em;
 
     .text-highlight {
       color: var(--color-primary);
@@ -170,18 +177,22 @@ a {
   }
 
   .hero-subtitle {
-    font-size: 1.15rem;
-    max-width: 750px;
-    margin: 0 auto 2.5rem;
-    color: #E0E0E0;
+    font-size: 1rem;
+    font-weight: 400;
+    max-width: 680px;
+    margin: 0 auto 2.2rem;
+    color: #FFFFFF;
+    line-height: 1.5;
+    opacity: 0.95;
   }
 
   .btn-hero {
     display: inline-block;
     background-color: var(--color-primary);
     color: #000000;
-    padding: 0.8rem 2.5rem;
-    font-weight: 800;
+    padding: 0.75rem 2.2rem;
+    font-weight: 700;
+    font-size: 0.95rem;
     border-radius: var(--radius-btn);
 
     &:hover {
@@ -573,98 +584,5 @@ a {
 
   .site-footer .footer-container {
     grid-template-columns: 1fr;
-  }
-}
-
-/* Actualizamos la variable de fuente en el :root */
-:root {
-  --font-main: 'Plus Jakarta Sans', sans-serif;
-  --font-heading: 'Syne', 'Plus Jakarta Sans', sans-serif;
-  /* ... resto de variables se mantienen ... */
-}
-
-/* Aplicamos las fuentes */
-body {
-  font-family: var(--font-main);
-}
-
-h1, h2, h3, .hero-title, .logo-sumix {
-  font-family: var(--font-heading);
-}
-
-/* HERO SECTION CON OVERLAY AMARILLENTO */
-.hero-section {
-  position: relative;
-  height: 85vh;
-  min-height: 520px;
-  background: url('../images/hero-bg.jpg') center/cover no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: #FFFFFF;
-
-  /* Sombreado amarillo verdoso oscuro calcado del PDF */
-  .hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(45, 40, 10, 0.72); /* Mezcla oscura de amarillo/negro */
-    mix-blend-mode: multiply; /* Fusiona el tono con la imagen de fondo */
-  }
-
-  .hero-container {
-    position: relative;
-    z-index: 2;
-    max-width: 900px;
-    padding: 0 1.5rem;
-  }
-
-  .hero-badge {
-    display: inline-block;
-    border: 1.5px solid var(--color-primary);
-    color: var(--color-primary);
-    padding: 0.4rem 1.6rem;
-    border-radius: 30px;
-    font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    margin-bottom: 1.5rem;
-  }
-
-  .hero-title {
-    font-size: 3.2rem;
-    font-weight: 800;
-    line-height: 1.15;
-    margin-bottom: 1.2rem;
-    letter-spacing: -0.5px;
-
-    .text-highlight {
-      color: var(--color-primary);
-    }
-  }
-
-  /* Estilos para el nuevo texto blanco */
-  .hero-subtitle {
-    font-size: 1rem;
-    font-weight: 400;
-    max-width: 680px;
-    margin: 0 auto 2.2rem;
-    color: #FFFFFF;
-    line-height: 1.5;
-    opacity: 0.95;
-  }
-
-  .btn-hero {
-    display: inline-block;
-    background-color: var(--color-primary);
-    color: #000000;
-    padding: 0.75rem 2.2rem;
-    font-weight: 700;
-    font-size: 0.95rem;
-    border-radius: 30px;
-
-    &:hover {
-      background-color: var(--color-primary-hover);
-    }
   }
 }
