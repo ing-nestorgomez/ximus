@@ -194,36 +194,101 @@ a {
   }
 }
 
-/* ABOUT SECTION */
+/* ABOUT SECTION (REASON WHY?) */
 .about-section {
-  padding: 5rem 0;
-  background-color: #FFFFFF;
+  padding: 6rem 0;
+  background-color: #000000; /* Fondo negro puro según el PDF */
+  color: #FFFFFF;
 
   .about-container {
     display: grid;
-    grid-template-columns: 1fr 450px;
-    gap: 3rem;
+    grid-template-columns: 1fr 420px;
+    gap: 4rem;
     align-items: center;
   }
 
+  .about-content {
+    max-width: 580px;
+  }
+
   .about-heading {
-    font-size: 2rem;
+    font-size: 3.2rem;
     font-weight: 900;
-    color: var(--color-text-dark);
-    margin-bottom: 1.5rem;
+    color: var(--color-primary); /* Amarillo SUMIX */
+    margin-bottom: 1.8rem;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+    text-transform: uppercase;
   }
 
   .about-text {
-    color: var(--color-text-muted);
-    font-size: 1.05rem;
-    line-height: 1.7;
-    margin-bottom: 1rem;
+    color: #E0E0E0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 
-  .about-image-wrapper img {
-    width: 100%;
-    border-radius: var(--radius-card);
-    object-fit: cover;
+  /* Marco con bordes amarillos decorativos */
+  .about-image-wrapper {
+    position: relative;
+    padding: 12px; /* Margen para las líneas decorativas */
+
+    img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      display: block;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Línea decorativa superior derecha */
+    .accent-line.top-right {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 60%;
+      height: 6px;
+      background-color: var(--color-primary);
+      z-index: 1;
+    }
+
+    /* Línea decorativa inferior izquierda */
+    .accent-line.bottom-left {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60%;
+      height: 6px;
+      background-color: var(--color-primary);
+      z-index: 1;
+    }
+  }
+}
+
+/* Ajuste Responsive */
+@media (max-width: 992px) {
+  .about-section {
+    padding: 4rem 0;
+
+    .about-container {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .about-heading {
+      font-size: 2.5rem;
+    }
+
+    .about-image-wrapper {
+      max-width: 450px;
+      margin: 0 auto;
+    }
   }
 }
 
