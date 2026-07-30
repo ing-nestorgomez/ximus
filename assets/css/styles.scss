@@ -408,88 +408,143 @@ a {
 }
 
 /* SERVICES SECTION */
+/* SERVICES SECTION (DISEÑO PDF) */
 .services-section {
   padding: 5rem 0;
-  background-color: var(--color-dark-bg);
-  color: #FFFFFF;
+  background-color: #FFFFFF; /* Fondo general blanco */
 
   .section-title-center {
     text-align: center;
-    font-size: 2.2rem;
+    font-size: 2.8rem;
     font-weight: 900;
-    margin-bottom: 3rem;
-    color: #FFFFFF;
+    color: #000000;
+    margin-bottom: 3.5rem;
   }
 
   .services-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    display: flex;
+    flex-direction: column;
     gap: 2rem;
+    max-width: 980px;
+    margin: 0 auto;
   }
 
   .service-card {
     position: relative;
-    height: 300px;
-    border-radius: var(--radius-card);
+    height: 320px;
+    border-radius: 20px;
     overflow: hidden;
     background-size: cover;
     background-position: center;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 2rem;
+    padding: 2rem 2.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 
+    /* Capa oscura transparente para resaltar el texto */
     .service-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.3));
+      background: linear-gradient(
+        180deg, 
+        rgba(0, 0, 0, 0.35) 0%, 
+        rgba(0, 0, 0, 0.75) 100%
+      );
       z-index: 1;
     }
 
-    .service-badge {
+    /* Tag superior derecho */
+    .service-header {
       position: relative;
       z-index: 2;
-      align-self: flex-start;
-      background-color: var(--color-primary);
-      color: #000;
-      font-weight: 800;
-      padding: 0.3rem 1rem;
-      border-radius: var(--radius-btn);
-      font-size: 0.85rem;
+      display: flex;
+      justify-content: flex-end;
+
+      .service-tag {
+        background: rgba(0, 0, 0, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.7);
+        color: #FFFFFF;
+        font-size: 0.85rem;
+        font-weight: 600;
+        padding: 0.35rem 1.2rem;
+        border-radius: var(--radius-btn);
+        backdrop-filter: blur(4px);
+      }
     }
 
-    .service-content {
+    /* Parte inferior (Texto + Botón) */
+    .service-footer {
       position: relative;
       z-index: 2;
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
-      gap: 1rem;
+      gap: 2rem;
 
-      h3 {
-        font-size: 1.3rem;
-        font-weight: 800;
-        margin-bottom: 0.4rem;
-        color: #FFFFFF;
-      }
+      .service-info {
+        max-width: 620px;
 
-      p {
-        font-size: 0.85rem;
-        color: #CCCCCC;
-        max-width: 320px;
+        h3 {
+          font-size: 2.2rem;
+          font-weight: 800;
+          color: #FFFFFF;
+          margin-bottom: 0.5rem;
+          line-height: 1.15;
+          letter-spacing: -0.01em;
+        }
+
+        p {
+          font-size: 0.9rem;
+          color: rgba(255, 255, 255, 0.9);
+          line-height: 1.4;
+        }
       }
 
       .btn-service {
         background-color: var(--color-primary);
         color: #000000;
-        font-weight: 800;
-        padding: 0.6rem 1.2rem;
+        font-weight: 700;
+        font-size: 0.9rem;
+        padding: 0.65rem 1.8rem;
         border-radius: var(--radius-btn);
         white-space: nowrap;
-        font-size: 0.85rem;
+        transition: var(--transition);
+        flex-shrink: 0;
 
         &:hover {
           background-color: var(--color-primary-hover);
+        }
+      }
+    }
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .services-section {
+    padding: 3.5rem 0;
+
+    .section-title-center {
+      font-size: 2rem;
+    }
+
+    .service-card {
+      height: auto;
+      min-height: 380px;
+      padding: 1.5rem;
+
+      .service-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+
+        .service-info h3 {
+          font-size: 1.6rem;
+        }
+
+        .btn-service {
+          align-self: flex-start;
         }
       }
     }
