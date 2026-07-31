@@ -671,7 +671,7 @@ a {
 
   /* Tarjetas laterales (Normales) */
   .insta-card {
-    background-color: #F8F6EF; /* Color crema del marco del PDF */
+    background-color: #ECD482; /* Color crema del marco del PDF */
     border-radius: 20px;
     padding: 12px 12px 14px 12px;
     width: 270px;
@@ -723,7 +723,7 @@ a {
     &.featured {
       width: 330px; /* Más ancha */
       padding: 14px 14px 16px 14px;
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 15px 35px rgba(247, 200, 61, 0.81);
 
       .insta-img-wrapper {
         height: 410px; /* Más alta */
