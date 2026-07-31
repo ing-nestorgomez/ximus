@@ -407,7 +407,6 @@ a {
   }
 }
 
-/* SERVICES SECTION */
 /* SERVICES SECTION (DISEÑO PDF) */
 .services-section {
   padding: 5rem 0;
@@ -552,57 +551,97 @@ a {
 }
 
 /* CONTACT SECTION (TARJETA AMARILLA) */
+/* CONTACT SECTION (DISEÑO PDF) */
 .contact-section {
   padding: 5rem 0;
+  background-color: #000000; /* Fondo negro absoluto exterior */
 
   .contact-box {
-    background-color: var(--color-primary);
-    border-radius: var(--radius-card);
+    /* Degradado amarillo/dorado corporativo */
+    background: linear-gradient(135deg, #FFCD00 0%, #D49000 100%);
+    border-radius: 24px;
     padding: 3.5rem 2rem;
     text-align: center;
-    color: #000000;
+    color: #FFFFFF; /* Texto blanco en el título y descripción */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 
     h2 {
       font-size: 2.2rem;
-      font-weight: 900;
+      font-weight: 800;
       margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+      color: #FFFFFF;
     }
 
     p {
-      font-size: 1.05rem;
-      max-width: 700px;
-      margin: 0 auto 2rem;
-      font-weight: 600;
+      font-size: 0.95rem;
+      max-width: 650px;
+      margin: 0 auto 2.5rem;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.95);
+      line-height: 1.5;
     }
 
     .contact-actions {
       display: flex;
       justify-content: center;
-      gap: 1.5rem;
+      align-items: center;
+      gap: 1.2rem;
 
+      a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        font-weight: 700;
+        font-size: 0.9rem;
+        padding: 0.75rem 2rem;
+        border-radius: var(--radius-btn);
+        transition: var(--transition);
+      }
+
+      /* Botón negro "Enviar Correo" */
       .btn-action-black {
         background-color: #000000;
-        color: #FFFFFF;
-        font-weight: 800;
-        padding: 0.8rem 2rem;
-        border-radius: var(--radius-btn);
+        color: var(--color-primary); /* Texto e ícono amarillo */
 
         &:hover {
-          background-color: #222222;
+          background-color: #1a1a1a;
+          transform: translateY(-2px);
         }
       }
 
+      /* Botón contorneado "Llamar Ahora" */
       .btn-action-outline {
-        border: 2px solid #000000;
+        border: 1.5px solid #000000;
         color: #000000;
-        font-weight: 800;
-        padding: 0.8rem 2rem;
-        border-radius: var(--radius-btn);
+        background-color: transparent;
 
         &:hover {
           background-color: #000000;
-          color: #FFFFFF;
+          color: var(--color-primary);
+          transform: translateY(-2px);
         }
+      }
+    }
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .contact-section .contact-box {
+    padding: 2.5rem 1.2rem;
+
+    h2 {
+      font-size: 1.6rem;
+    }
+
+    .contact-actions {
+      flex-direction: column;
+      width: 100%;
+
+      a {
+        width: 100%;
+        justify-content: center;
       }
     }
   }
