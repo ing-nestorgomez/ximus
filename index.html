@@ -200,16 +200,25 @@ title: "SUMIX | Suministros Mixtos y Soluciones Industriales"
 </section>
 
 <!-- SECCIÓN SOCIAL / INSTAGRAM -->
-<section class="social-section">
-  <div class="container social-container">
-    <div class="social-info">
-      <h2>Explora nuestro contenido en nuestras redes sociales</h2>
-      <a href="https://instagram.com/sumix.supply" target="_blank" class="social-link">
-        <i class="fa-brands fa-instagram"></i> @sumix.supply
-      </a>
+<section class="social-section" id="redes">
+  <div class="container">
+    <h2 class="section-title-center">Explora nuestro contenido<br>en nuestras redes sociales</h2>
+
+    <!-- Contenedor donde se cargarán dinámicamente las 3 publicaciones -->
+    <div class="instagram-grid" id="instagram-feed">
+      <!-- Los posts se inyectarán con JS -->
     </div>
-    <div class="social-preview">
-      <img src="{{ "/assets/images/instagram-preview.jpg" | relative_url }}" alt="Instagram Preview SUMIX">
+
+    <!-- Enlace al perfil de Instagram -->
+    <div class="instagram-profile-link">
+      <a href="https://www.instagram.com/sumix.supply/" target="_blank" rel="noopener noreferrer">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+        </svg>
+        <span>@sumix.supply</span>
+      </a>
     </div>
   </div>
 </section>
