@@ -771,7 +771,6 @@ a {
 }
 
 /* FOOTER AMARILLO CORPORATIVO */
-/* FOOTER SECTION (DISEÑO PDF) */
 .footer {
   background-color: var(--color-primary); /* Amarillo Corporativo */
   color: #000000;
@@ -792,7 +791,7 @@ a {
 
     .footer-logo {
       width: 100%;
-      max-width: 180px; /* Tamaño ideal según PDF */
+      max-width: 280px; /* Tamaño ideal según PDF */
       height: auto;
       display: block;
       object-fit: contain;
