@@ -646,7 +646,7 @@ a {
   }
 }
 
-/* SOCIAL / INSTAGRAM SECTION */
+/* SOCIAL / INSTAGRAM SECTION (DISEÑO EXACTO PDF) */
 .social-section {
   padding: 5rem 0;
   background-color: #FFFFFF;
@@ -663,28 +663,24 @@ a {
   .instagram-grid {
     display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    max-width: 1000px;
-    margin: 0 auto 3rem auto;
+    align-items: center; /* Alineación central vertical */
+    gap: 2.5rem;
+    max-width: 1100px;
+    margin: 0 auto 3.5rem auto;
   }
 
-  /* Tarjeta de cada publicación estilo PDF */
+  /* Tarjetas laterales (Normales) */
   .insta-card {
-    background-color: #EAE1C2; /* Fondo beige claro del marco */
+    background-color: #F8F6EF; /* Color crema del marco del PDF */
     border-radius: 20px;
-    padding: 12px 12px 16px 12px;
-    width: 280px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+    padding: 12px 12px 14px 12px;
+    width: 270px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease;
-
-    &:hover {
-      transform: translateY(-5px);
-    }
 
     .insta-img-wrapper {
       width: 100%;
-      height: 280px;
+      height: 330px; /* Proporción Vertical Retrato */
       border-radius: 14px;
       overflow: hidden;
       margin-bottom: 12px;
@@ -696,26 +692,24 @@ a {
       }
     }
 
-    /* Íconos inferiores estilo Instagram */
     .insta-actions {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0 4px;
+      padding: 0 6px;
 
       .left-icons {
         display: flex;
-        gap: 10px;
+        gap: 12px;
         align-items: center;
 
         svg {
           width: 18px;
           height: 18px;
-          cursor: pointer;
         }
 
         .icon-heart {
-          fill: #FF3B30; /* Corazón rojo */
+          fill: #FF3B30;
         }
       }
 
@@ -724,9 +718,42 @@ a {
         height: 16px;
       }
     }
+
+    /* TARJETA CENTRAL DESTACADA (La última publicación) */
+    &.featured {
+      width: 330px; /* Más ancha */
+      padding: 14px 14px 16px 14px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+
+      .insta-img-wrapper {
+        height: 410px; /* Más alta */
+        border-radius: 16px;
+      }
+
+      .insta-actions {
+        padding: 0 8px;
+
+        .left-icons {
+          gap: 14px;
+
+          svg {
+            width: 20px;
+            height: 20px;
+          }
+        }
+
+        .icon-bookmark {
+          width: 18px;
+          height: 18px;
+        }
+      }
+    }
+
+    &:hover {
+      transform: translateY(-6px);
+    }
   }
 
-  /* Link al perfil @sumix.supply */
   .instagram-profile-link {
     text-align: center;
 
@@ -738,11 +765,6 @@ a {
       font-weight: 800;
       color: #000000;
       text-decoration: none;
-      transition: opacity 0.2s ease;
-
-      &:hover {
-        opacity: 0.8;
-      }
 
       svg {
         width: 38px;
@@ -752,24 +774,25 @@ a {
   }
 }
 
-/* Responsive */
-@media (max-width: 900px) {
+/* Responsive para dispositivos móviles */
+@media (max-width: 960px) {
   .social-section {
     .instagram-grid {
-      flex-wrap: wrap;
+      flex-direction: column;
+      gap: 2rem;
     }
 
-    .instagram-profile-link a {
-      font-size: 1.6rem;
-      
-      svg {
-        width: 28px;
-        height: 28px;
+    .insta-card, 
+    .insta-card.featured {
+      width: 100%;
+      max-width: 320px;
+
+      .insta-img-wrapper {
+        height: 380px;
       }
     }
   }
 }
-
 /* FOOTER AMARILLO CORPORATIVO */
 .footer {
   background-color: var(--color-primary); /* Amarillo Corporativo */
