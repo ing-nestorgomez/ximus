@@ -45,37 +45,62 @@
   </main>
 
   <!-- Footer -->
-  <footer class="site-footer">
-    <div class="footer-container">
-      
-      <div class="footer-col brand-col">
-        <div class="footer-logo">SUMIX</div>
-      </div>
-
-      <div class="footer-col">
-        <h3>Sede Principal</h3>
-        <p>Calle Los Robles, No. 154, Los Cocoles<br>El Tigre, Estado Anzoátegui<br>Venezuela</p>
-      </div>
-
-      <div class="footer-col">
-        <h3>Sucursal Caracas</h3>
-        <p>Muy pronto</p>
-      </div>
-
-      <div class="footer-col">
-        <h3>Contacto</h3>
-        <p>SUMIX C.A.</p>
-        <p><a href="tel:04148008142">0414-8008142</a></p>
-        <p><a href="mailto:sumixca@gmail.com">sumixca@gmail.com</a></p>
-      </div>
-
-    </div>
+  <footer class="footer">
+  <div class="container footer-container">
     
-    <div class="footer-bottom">
-      <p>&copy; {{ "now" | date: "%Y" }} SUMIX C.A. Todos los derechos reservados.</p>
+    <!-- Columna Izquierda: Logo -->
+    <div class="footer-brand">
+      <img src="assets/images/logo-SUMIX.png" alt="SUMIX Logo" class="footer-logo">
     </div>
-  </footer>
 
+    <!-- Columna Derecha: Información de Sedes y Contacto -->
+    <div class="footer-info">
+      
+      <!-- Bloque Sede Principal + Contacto -->
+      <div class="info-block">
+        <h3>Sede Principal</h3>
+        <p class="icon-text">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+          </svg>
+          Calle Los Robles, No. 154, Los Cocoles,<br>El Tigre, Estado Anzoátegui,<br>Venezuela
+        </p>
+
+        <h3 class="contact-title">Contacto</h3>
+        <p class="icon-text">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+          </svg>
+          0414-8009142
+        </p>
+        <p class="icon-text">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+          </svg>
+          sumixca@gmail.com
+        </p>
+      </div>
+
+      <!-- Bloque Sucursal Caracas -->
+      <div class="info-block">
+        <h3>Sucursal Caracas</h3>
+        <p class="icon-text">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+          </svg>
+          Muy pronto
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Copyright -->
+  <div class="footer-bottom">
+    <p>© 2026 SUMIX C.A. Todos los derechos reservados.</p>
+  </div>
+</footer>
+  
   <script>
     function toggleMenu() {
       document.getElementById('navLinks').classList.toggle('active');
