@@ -771,103 +771,102 @@ a {
 }
 
 /* FOOTER AMARILLO CORPORATIVO */
-.site-footer {
-  background-color: var(--color-primary);
+/* FOOTER SECTION (DISEÑO PDF) */
+.footer {
+  background-color: var(--color-primary); /* Amarillo Corporativo */
   color: #000000;
-  padding: 4rem 0 1.5rem;
+  padding: 4rem 0 2rem 0;
 
   .footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-    display: grid;
-    grid-template-columns: 1fr 1.5fr 1fr;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
     gap: 3rem;
+    max-width: 1000px;
+    margin: 0 auto;
   }
 
-  .footer-col {
-    h3 {
-      font-size: 1.1rem;
-      font-weight: 900;
-      margin-bottom: 1rem;
-      text-transform: uppercase;
-    }
+  /* Control y límites del tamaño de la imagen del Logo */
+  .footer-brand {
+    flex: 1;
 
-    p {
-      font-size: 0.95rem;
-      font-weight: 600;
-      line-height: 1.6;
-    }
-  }
-
-  .footer-bottom {
-    max-width: 1200px;
-    margin: 3rem auto 0;
-    padding: 1.5rem 1.5rem 0;
-    border-top: 1px solid rgba(0,0,0,0.15);
-    text-align: center;
-    font-weight: 700;
-    font-size: 0.85rem;
-  }
-}
-
-/* RESPONSIVE */
-@media (max-width: 992px) {
-  .about-section .about-container {
-    grid-template-columns: 1fr;
-  }
-  .services-section .services-list {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 768px) {
-  .hero-section .hero-title {
-    font-size: 2.2rem;
-  }
-
-  .products-section .product-row {
-    flex-direction: column;
-    text-align: center;
-
-    .btn-readmore {
+    .footer-logo {
       width: 100%;
-    }
-  }
-
-  .services-section .service-card {
-    height: auto;
-    min-height: 320px;
-
-    .service-content {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  }
-
-  .site-header {
-    .menu-toggle {
+      max-width: 180px; /* Tamaño ideal según PDF */
+      height: auto;
       display: block;
+      object-fit: contain;
     }
+  }
 
-    .nav-links {
-      position: fixed;
-      top: 60px;
-      left: -100%;
-      width: 100%;
-      height: calc(100vh - 60px);
-      background-color: var(--color-primary);
-      flex-direction: column;
-      padding: 3rem 1.5rem;
-      transition: var(--transition);
+  /* Sección derecha (2 Columnas: Sede Principal y Caracas) */
+  .footer-info {
+    flex: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
 
-      &.active {
-        left: 0;
+    .info-block {
+      h3 {
+        font-size: 1.1rem;
+        font-weight: 800;
+        margin-bottom: 0.8rem;
+        color: #000000;
+
+        &.contact-title {
+          margin-top: 1.8rem;
+        }
+      }
+
+      .icon-text {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.5rem;
+        font-size: 0.88rem;
+        line-height: 1.45;
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+        color: #000000;
+
+        svg {
+          flex-shrink: 0;
+          margin-top: 2px;
+        }
       }
     }
   }
 
-  .site-footer .footer-container {
-    grid-template-columns: 1fr;
+  /* Texto de Copyright (Sin línea divisoria) */
+  .footer-bottom {
+    text-align: center;
+    margin-top: 3.5rem;
+    padding-top: 1rem;
+
+    p {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #000000;
+    }
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer {
+    padding: 3rem 0 1.5rem 0;
+
+    .footer-container {
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    .footer-brand .footer-logo {
+      max-width: 150px;
+    }
+
+    .footer-info {
+      grid-template-columns: 1fr;
+      gap: 1.8rem;
+    }
   }
 }
