@@ -794,101 +794,99 @@ a {
   }
 }
 /* FOOTER AMARILLO CORPORATIVO */
+/* FOOTER ESTILOS */
 .footer {
-  background-color: var(--color-primary); /* Amarillo Corporativo */
+  background-color: #ffcc00; /* Color amarillo corporativo */
+  padding-top: 3rem;
+  padding-bottom: 2rem;
   color: #000000;
-  padding: 4rem 0 2rem 0;
 
   .footer-container {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     gap: 3rem;
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
+    padding: 0 1.5rem;
   }
 
-  /* Control y límites del tamaño de la imagen del Logo */
+  /* Logo a la izquierda */
   .footer-brand {
-    flex: 1;
+    flex-shrink: 0;
 
     .footer-logo {
-      width: 100%;
-      max-width: 280px; /* Tamaño ideal según PDF */
+      max-width: 230px;
       height: auto;
       display: block;
-      object-fit: contain;
     }
   }
 
-  /* Sección derecha (2 Columnas: Sede Principal y Caracas) */
-  .footer-info {
-    flex: 2;
+  /* Grid de 3 columnas a la derecha */
+  .footer-info-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 2.5rem;
+    flex-grow: 1;
 
-    .info-block {
+    .footer-col {
       h3 {
         font-size: 1.1rem;
         font-weight: 800;
-        margin-bottom: 0.8rem;
+        margin-bottom: 1rem;
         color: #000000;
-
-        &.contact-title {
-          margin-top: 1.8rem;
-        }
       }
 
       .icon-text {
         display: flex;
         align-items: flex-start;
         gap: 0.5rem;
-        font-size: 0.88rem;
-        line-height: 1.45;
-        font-weight: 500;
-        margin-bottom: 0.5rem;
+        font-size: 0.9rem;
+        line-height: 1.4;
+        margin-bottom: 0.6rem;
         color: #000000;
+        font-weight: 500;
 
         svg {
           flex-shrink: 0;
-          margin-top: 2px;
+          margin-top: 0.2rem;
         }
       }
     }
   }
 
-  /* Texto de Copyright (Sin línea divisoria) */
+  /* Copyright centrado */
   .footer-bottom {
     text-align: center;
-    margin-top: 3.5rem;
-    padding-top: 1rem;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
 
     p {
       font-size: 0.85rem;
-      font-weight: 700;
+      font-weight: 600;
       color: #000000;
+      margin: 0;
     }
   }
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+/* Responsivo para dispositivos móviles */
+@media (max-width: 992px) {
   .footer {
-    padding: 3rem 0 1.5rem 0;
-
     .footer-container {
       flex-direction: column;
-      gap: 2.5rem;
+      align-items: center;
+      text-align: center;
     }
 
-    .footer-brand .footer-logo {
-      max-width: 150px;
-    }
-
-    .footer-info {
+    .footer-info-grid {
       grid-template-columns: 1fr;
-      gap: 1.8rem;
+      width: 100%;
+      text-align: center;
+
+      .footer-col .icon-text {
+        justify-content: center;
+      }
     }
   }
 }
