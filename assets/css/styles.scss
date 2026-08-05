@@ -292,116 +292,116 @@ a {
   }
 }
 
-/* PRODUCTS SECTION (CATÁLOGO PDF) */
+/* SECCIÓN PRODUCTOS Y SERVICIOS */
 .products-section {
   padding: 5rem 0;
-  background-color: #FFFFFF; /* Fondo blanco puro */
+  background-color: #ffffff;
 
   .section-title-center {
     text-align: center;
     font-size: 2.8rem;
-    font-weight: 900;
+    font-weight: 800;
     color: #000000;
     margin-bottom: 4rem;
     line-height: 1.15;
   }
 
-  .products-list {
-    display: flex;
-    flex-direction: column;
-    gap: 3.5rem;
-    max-width: 980px;
-    margin: 0 auto;
+  /* Layout en Grid de 2 Columnas */
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3.5rem 2.5rem;
+    align-items: start;
   }
 
+  /* Tarjeta Individual */
   .product-card {
     display: flex;
     align-items: flex-start;
-    gap: 2.5rem;
+    gap: 1.5rem;
 
+    /* Imagen cuadrada con esquinas suavizadas */
     .product-img {
       width: 220px;
       height: 220px;
-      border-radius: 32px; /* Esquinas super redondeadas idénticas al PDF */
       object-fit: cover;
+      border-radius: 28px; /* Bordes redondeados del diseño */
       flex-shrink: 0;
     }
 
+    /* Contenido lateral derecho */
     .product-content {
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 220px;
-      padding-top: 0.5rem;
-    }
+      flex: 1;
 
-    .product-info {
       h3 {
-        font-size: 1.15rem;
+        font-size: 1.1rem;
         font-weight: 800;
         color: #000000;
-        text-transform: uppercase;
         margin-bottom: 0.8rem;
-        line-height: 1.3;
-        letter-spacing: -0.01em;
+        line-height: 1.25;
+        text-transform: uppercase;
       }
 
       p {
-        font-size: 0.92rem;
-        color: #333333;
-        line-height: 1.5;
-        max-width: 620px;
+        font-size: 0.88rem;
+        color: #1a1a1a;
+        line-height: 1.4;
+        font-weight: 400;
       }
-    }
 
-    .btn-readmore {
-      align-self: flex-end; /* Lo alinea abajo a la derecha */
-      background-color: var(--color-primary);
-      color: #000000;
-      font-weight: 700;
-      font-size: 0.9rem;
-      padding: 0.55rem 1.8rem;
-      border-radius: var(--radius-btn);
-      transition: var(--transition);
-      margin-top: 1rem;
+      /* Estilo especial para la lista del 6to elemento (Servicios) */
+      .services-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
 
-      &:hover {
-        background-color: var(--color-primary-hover);
+        li {
+          font-size: 0.82rem;
+          color: #1a1a1a;
+          line-height: 1.35;
+          margin-bottom: 0.4rem;
+          position: relative;
+          padding-left: 0.9rem;
+
+          &::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #000000;
+            font-weight: bold;
+          }
+        }
       }
     }
   }
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+/* Adaptación para Pantallas Médias y Móviles */
+@media (max-width: 992px) {
   .products-section {
-    padding: 3.5rem 0;
-
-    .section-title-center {
-      font-size: 2rem;
-      margin-bottom: 2.5rem;
+    .products-grid {
+      grid-template-columns: 1fr; /* Pasa a 1 columna en móviles */
+      gap: 2.5rem;
     }
 
     .product-card {
-      flex-direction: column;
-      align-items: center;
-      text-align: left;
-      gap: 1.5rem;
+      .product-img {
+        width: 170px;
+        height: 170px;
+        border-radius: 20px;
+      }
+    }
+  }
+}
 
+@media (max-width: 576px) {
+  .products-section {
+    .product-card {
+      flex-direction: column;
+      
       .product-img {
         width: 100%;
-        max-width: 280px;
-        height: 240px;
-      }
-
-      .product-content {
-        width: 100%;
-        min-height: auto;
-      }
-
-      .btn-readmore {
-        align-self: flex-start;
+        height: 220px;
       }
     }
   }
