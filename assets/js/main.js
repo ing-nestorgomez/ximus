@@ -6,47 +6,82 @@ async function loadInstagramPosts() {
   const container = document.getElementById('instagram-feed');
   if (!container) return;
 
+  // =========================================================================
+  // CONFIGURACIÓN ORIGINAL (Pausada hasta obtener el Token oficial de Meta)
+  // =========================================================================
+  /*
   const INSTAGRAM_ACCESS_TOKEN = 'TU_INSTAGRAM_ACCESS_TOKEN_AQUI';
   const url = `https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,permalink,thumbnail_url&limit=3&access_token=${INSTAGRAM_ACCESS_TOKEN}`;
+  */
 
-  // Publicaciones de respaldo (Rutas locales de tus imágenes)
+  // =========================================================================
+  // NUEVA CONFIGURACIÓN: API Backend Intermedia (CaribeRoyalPetrol / Postgram)
+  // =========================================================================
+  const POSTGRAM_API_URL = 'https://cariberoyalpetrol.com/postgram/api.php?user=sumix.supply';
+  const POSTGRAM_TOKEN = 'sumix_sec_9f8a7b6c5d4e3f2a1';
+
+  // Publicaciones de respaldo locales (Rutas estáticas si todo lo demás falla)
   // [0] = Más reciente (Centro), [1] = Segunda (Izquierda), [2] = Tercera (Derecha)
   const fallbackPosts = [
     {
-      media_url: 'assets/images/service-metalmecanica.jpg', // Foto de la caja SUMIX (Más reciente)
+      media_url: 'assets/images/service-metalmecanica.jpg', // Foto central (Caja SUMIX)
       permalink: 'https://www.instagram.com/sumix.supply/'
     },
     {
-      media_url: 'assets/images/service-electricas.jpg', // Foto del pozo/ingeniero
+      media_url: 'assets/images/service-electricas.jpg', // Foto izquierda
       permalink: 'https://www.instagram.com/sumix.supply/'
     },
     {
-      media_url: 'assets/images/service-desmalezamiento.jpg', // Foto de productos de limpieza
+      media_url: 'assets/images/service-desmalezamiento.jpg', // Foto derecha
       permalink: 'https://www.instagram.com/sumix.supply/'
     }
   ];
 
   try {
-    let posts = [];
-    
+    let fetched = [];
+
+    // 1. Intento de carga desde la nueva API intermedia
+    const response = await fetch(POSTGRAM_API_URL, {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${POSTGRAM_TOKEN}`,
+        'Content-Type': 'application/json'
+      }
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      if (Array.isArray(data) && data.length >= 3) {
+        fetched = data.slice(0, 3).map(post => ({
+          media_url: post.image_url,
+          permalink: post.permalink
+        }));
+      }
+    }
+
+    // =========================================================================
+    // CÓDIGO ORIGINAL GRAPH API (Comentado para retomar en el futuro)
+    // =========================================================================
+    /*
     if (INSTAGRAM_ACCESS_TOKEN && INSTAGRAM_ACCESS_TOKEN !== 'TU_INSTAGRAM_ACCESS_TOKEN_AQUI') {
       const response = await fetch(url);
       const data = await response.json();
-      
       if (data && data.data && data.data.length >= 3) {
-        // Formateamos los 3 posts
-        const fetched = data.data.slice(0, 3).map(post => ({
+        fetched = data.data.slice(0, 3).map(post => ({
           media_url: post.media_type === 'VIDEO' ? post.thumbnail_url : post.media_url,
           permalink: post.permalink
         }));
-
-        // Reordenamos: [Post2 (Izquierda), Post1 (Centro - Última publicación), Post3 (Derecha)]
-        posts = [fetched[1], fetched[0], fetched[2]];
       }
     }
-    
-    if (posts.length === 0) {
-      // Reordenamos las de respaldo igual: Centro (Caja SUMIX) queda en el índice 1
+    */
+
+    let posts = [];
+
+    if (fetched.length >= 3) {
+      // Ordenamos para el diseño exacto: [Izquierda (Post 2), Centro Destacado (Post 1), Derecha (Post 3)]
+      posts = [fetched[1], fetched[0], fetched[2]];
+    } else {
+      // Reordenamos las de respaldo igual
       posts = [fallbackPosts[1], fallbackPosts[0], fallbackPosts[2]];
     }
 
@@ -58,8 +93,8 @@ async function loadInstagramPosts() {
   }
 }
 
+// La función renderPosts(posts, container) se mantiene EXACTAMENTE IGUAL
 function renderPosts(posts, container) {
-  // Asignamos una clase especial 'featured' al elemento del centro (index === 1)
   container.innerHTML = posts.map((post, index) => `
     <div class="insta-card ${index === 1 ? 'featured' : ''}">
       <a href="${post.permalink}" target="_blank" rel="noopener noreferrer">
