@@ -923,3 +923,66 @@ a {
   height: 35px;
   fill: white;
 }
+
+/* ==========================================
+   ESTILOS RESPONSIVOS PARA PANTALLAS MÓVILES
+   ========================================== */
+
+@media (max-width: 768px) {
+  /* 1. Ajustes del Header y Menú Hamburguesa */
+  .site-header {
+    .menu-toggle {
+      display: block; /* Muestra el icono de hamburguesa */
+      padding: 0.2rem 0.5rem;
+    }
+
+    .nav-links {
+      display: none; /* Oculta el menú horizontal en móviles */
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: var(--color-primary);
+      flex-direction: column;
+      padding: 1.5rem 0;
+      gap: 1.2rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      align-items: center;
+
+      /* Muestra el menú cuando el JS activa la clase .active */
+      &.active {
+        display: flex;
+      }
+
+      a {
+        font-size: 1.1rem;
+        width: 100%;
+        text-align: center;
+      }
+
+      .nav-btn-contact {
+        display: inline-block;
+        width: auto;
+        margin-top: 0.5rem;
+      }
+    }
+  }
+
+  /* 2. Ajustes del Hero para evitar desbordamiento */
+  .hero-section {
+    height: auto;
+    min-height: 80vh;
+    padding: 5rem 0 3rem; /* Espaciado extra para evitar colisión con el header fijo */
+
+    .hero-title {
+      font-size: clamp(1.8rem, 7vw, 2.5rem); /* Ajuste dinámico del tamaño de letra */
+      word-break: break-word; /* Previene que palabras largas se salgan en teléfonos muy estrechos */
+      margin-bottom: 1rem;
+    }
+
+    .hero-subtitle {
+      font-size: 0.95rem;
+      padding: 0 0.5rem;
+    }
+  }
+}
