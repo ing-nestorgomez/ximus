@@ -24,15 +24,15 @@ async function loadInstagramPosts() {
   // [0] = Más reciente (Centro), [1] = Segunda (Izquierda), [2] = Tercera (Derecha)
   const fallbackPosts = [
     {
-      media_url: 'assets/images/service-metalmecanica.jpg', // Foto central (Caja SUMIX)
+      media_url: 'assets/images/instagram/central.jpg', // Foto central (Caja SUMIX)
       permalink: 'https://www.instagram.com/sumix.supply/'
     },
     {
-      media_url: 'assets/images/service-electricas.jpg', // Foto izquierda
+      media_url: 'assets/images/instagram/izquierda.jpg', // Foto izquierda
       permalink: 'https://www.instagram.com/sumix.supply/'
     },
     {
-      media_url: 'assets/images/service-desmalezamiento.jpg', // Foto derecha
+      media_url: 'assets/images/instagram/derecha.jpg', // Foto derecha
       permalink: 'https://www.instagram.com/sumix.supply/'
     }
   ];
